@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 import updateContext from '@laufire/resist';
 import './index.css';
@@ -15,10 +15,13 @@ const Entry = () => {
 	return App(context);
 };
 
-ReactDOM.render(<React.StrictMode>
-	<Entry/>
-</React.StrictMode>,
-document.getElementById('root'));
+createRoot(document.getElementById('root'))
+	.render(
+		<React.StrictMode>
+			<Entry/>
+		</React.StrictMode>
+	)
+
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
